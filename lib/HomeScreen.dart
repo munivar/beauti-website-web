@@ -477,26 +477,26 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Constants.mainContainer(isMobile, isTablet, "Photo Gallery"),
-          Center(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width * (0.95),
-              child: StaggeredGridView.countBuilder(
-                  staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  itemCount: galleryList.length,
-                  itemBuilder: ((context, index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        galleryList[index],
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  })),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: StaggeredGridView.countBuilder(
+                physics: const ScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
+                crossAxisCount: 2,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                itemCount: galleryList.length,
+                itemBuilder: ((context, index) {
+                  return ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset(
+                      galleryList[index],
+                      fit: BoxFit.cover,
+                    ),
+                  );
+                })),
           ),
         ],
       ),

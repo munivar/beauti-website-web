@@ -1,4 +1,5 @@
 import 'package:beauti_website/HomeScreen.dart';
+import 'package:beauti_website/scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,7 +25,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Beauty Parlour",
+      title: "Siya Bridal Studio",
+      scrollBehavior: CustomScrollBehavior(),
       theme: ThemeData(
         brightness: Brightness.light,
         fontFamily: "Poppins",
